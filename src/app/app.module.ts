@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; // Import the routing module
-import { RouterModule } from '@angular/router'; // Ensure RouterModule is imported
+import { RouterModule } from '@angular/router';
+import { SharedModule } from './shared.module'; // Ensure RouterModule is imported
 
 @NgModule({
   declarations: [
@@ -10,8 +11,14 @@ import { RouterModule } from '@angular/router'; // Ensure RouterModule is import
   ],
   imports: [
     BrowserModule,
-    RouterModule, // Important for routing
-    AppRoutingModule // Ensure routing module is included
+    RouterModule,
+    AppRoutingModule, 
+    SharedModule
+  ],
+  exports: [
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
