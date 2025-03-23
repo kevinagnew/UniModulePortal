@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-portal-login',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AdminPortalLoginComponent {
 
+    constructor(private router: Router) {}
+
+    navigateToAdminRegister(): void {
+        this.router.navigate(['/admin-portal-register']);
+    }
 }
