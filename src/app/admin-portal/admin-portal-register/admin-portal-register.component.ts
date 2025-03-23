@@ -29,7 +29,6 @@ export class AdminPortalRegisterComponent {
 	}
 
 	adminRegister() {
-		console.log("KA - form: ", this.adminRegisterForm.value);
 		// TODO: Checks for validation/verification
 		const adminUser: adminUser = {
 			firstname: this.adminRegisterForm.value.firstname,
@@ -39,6 +38,7 @@ export class AdminPortalRegisterComponent {
 		};
 		this.registerService.registerForAdmin(adminUser).subscribe(response => {
 			console.log("KA - registerAdmin: ", response);
+			this.router.navigate(['/admin/login']);
 		});
 	}
 }

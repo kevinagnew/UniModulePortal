@@ -6,8 +6,8 @@ import { AdminPortalDashboardComponent } from './admin-portal/admin-portal-dashb
 
 const routes: Routes = [
   { path: '', component: AdminPortalLoginComponent },
-  { path: 'admin/login', component: AdminPortalLoginComponent },
-  { path: 'admin-portal-register', component: AdminPortalRegisterComponent },
+  { path: 'admin-portal/login', component: AdminPortalLoginComponent },
+  { path: 'admin-portal/register', component: AdminPortalRegisterComponent },
   { path: 'admin-portal/dashboard', component: AdminPortalDashboardComponent },
 ];
 
