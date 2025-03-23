@@ -24,7 +24,7 @@ export class AdminPortalLoginComponent implements OnInit {
     ngOnInit() { }
 
     navigateToAdminRegister(): void {
-        this.router.navigate(['/admin-portal-register']);
+        this.router.navigate(['/admin-portal/register']);
     }
 
     adminLogin() {

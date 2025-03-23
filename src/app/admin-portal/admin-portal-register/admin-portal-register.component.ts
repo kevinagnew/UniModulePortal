@@ -25,7 +25,7 @@ export class AdminPortalRegisterComponent {
 	) { }
 
 	navigateToAdminLogin(): void {
-		this.router.navigate(['/admin/login']);
+		this.router.navigate(['/admin-portal/login']);
 	}
 
 	adminRegister() {
@@ -37,7 +37,7 @@ export class AdminPortalRegisterComponent {
 		};
 		this.registerService.registerForAdmin(adminUser).subscribe(response => {
 			console.log("KA - registerAdmin: ", response);
-			this.router.navigate(['/admin/login']);
+			this.router.navigate(['/admin-portal/login']);
 		});
 	}
 }
