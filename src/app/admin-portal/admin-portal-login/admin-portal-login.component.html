@@ -1,0 +1,17 @@
+<div fxLayoutAlign="space-around center">
+    <form fxLayout="column" [formGroup]="adminLoginForm" (ngSubmit)="adminLogin()">
+        <h1>Admin Portal Login</h1>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+              <input matInput type="email" id="email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+              <input matInput type="password" id="password" formControlName="password">
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="space-evenly center">
+            <button mat-flat-button color="accent" type="submit">Login</button>
+            <button mat-stroked-button color="accent" (click)="navigateToAdminRegister()">Register</button>
+        </div>
+    </form>
+</div>
