@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; // Import the routing module
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared.module'; // Ensure RouterModule is imported
+import { AdminPortalModule } from './admin-portal/admin-portal.module';
 
 @NgModule({
   declarations: [
@@ -13,12 +14,14 @@ import { SharedModule } from './shared.module'; // Ensure RouterModule is import
     BrowserModule,
     RouterModule,
     AppRoutingModule, 
-    SharedModule
+    SharedModule,
+    AdminPortalModule
   ],
   exports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminPortalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

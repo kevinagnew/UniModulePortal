@@ -6,12 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AdminPortalComponent } from './admin-portal/admin-portal.component';
+//import { AdminPortalComponent } from './admin-portal/admin-portal.component';
+//import { AdminPortalLoginComponent } from "./admin-portal/admin-portal-login/admin-portal-login.component";
 
 @NgModule({
-  declarations: [
-    AdminPortalComponent,
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     MatInputModule,
@@ -19,9 +18,8 @@ import { AdminPortalComponent } from './admin-portal/admin-portal.component';
     FormsModule,
     MatButtonModule,
     BrowserAnimationsModule
-  ],
+],
   exports: [
-    AdminPortalComponent,
     CommonModule,
     MatInputModule,
     MatFormFieldModule,
