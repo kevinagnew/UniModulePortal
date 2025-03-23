@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { provideHttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -16,7 +18,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     FormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule
 ],
   exports: [
     CommonModule,
@@ -25,7 +28,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     FormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
-  ]
+    FlexLayoutModule,
+    ReactiveFormsModule
+  ],
+  providers: [provideHttpClient()],
 })
 export class SharedModule { }
