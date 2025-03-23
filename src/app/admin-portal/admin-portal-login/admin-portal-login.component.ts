@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RegisterService } from '../../../services/register.service';
+import { RegisterService } from '../../services/register.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { adminUser } from '../../../services/register.service';
+import { adminUser } from '../../services/register.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-admin-portal-login',
-  templateUrl: './admin-portal-login.component.html',
-  styleUrl: './admin-portal-login.component.scss'
+    selector: 'app-admin-portal-login',
+    templateUrl: './admin-portal-login.component.html',
+    styleUrl: './admin-portal-login.component.scss'
 })
 export class AdminPortalLoginComponent implements OnInit {
 
@@ -18,8 +19,9 @@ export class AdminPortalLoginComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private registerService: RegisterService
-    ) {}
+        private registerService: RegisterService,
+        private authService: AuthService
+    ) { }
 
     ngOnInit() { }
 
@@ -29,16 +31,17 @@ export class AdminPortalLoginComponent implements OnInit {
 
     adminLogin() {
         const adminUser: adminUser = {
-			email: this.adminLoginForm.value.email,
-			password: this.adminLoginForm.value.password
-		};
-        this.registerService.loginForAdmin(adminUser).subscribe(response => {
-            console.log("KA - loginAdmin: ", response);
+            email: this.adminLoginForm.value.email,
+            password: this.adminLoginForm.value.password
+        };
+        
+        this.authService.login(adminUser.email, adminUser.password).subscribe(response => {
             if (response.success) {
+                this.authService.setToken(response.token);
                 this.router.navigate(['/admin-portal/dashboard']);
             } else {
                 alert(response.message);
             }
-		});
+        });
     }
 }

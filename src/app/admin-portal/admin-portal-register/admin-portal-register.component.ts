@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { adminUser, RegisterService } from '../../../services/register.service';
+import { adminUser, RegisterService } from '../../services/register.service';
 
 @Component({
 	selector: 'app-admin-portal-register',
@@ -29,7 +29,6 @@ export class AdminPortalRegisterComponent {
 	}
 
 	adminRegister() {
-		// TODO: Checks for validation/verification
 		const adminUser: adminUser = {
 			firstname: this.adminRegisterForm.value.firstname,
 			lastname: this.adminRegisterForm.value.lastname,
