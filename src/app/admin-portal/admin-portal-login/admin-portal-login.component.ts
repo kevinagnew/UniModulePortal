@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RegisterService } from '../../services/register.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { adminUser } from '../../services/register.service';
 import { AuthService } from '../../services/auth.service';
@@ -19,7 +18,6 @@ export class AdminPortalLoginComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private registerService: RegisterService,
         private authService: AuthService
     ) { }
 
@@ -34,7 +32,6 @@ export class AdminPortalLoginComponent implements OnInit {
             email: this.adminLoginForm.value.email,
             password: this.adminLoginForm.value.password
         };
-        
         this.authService.login(adminUser.email, adminUser.password).subscribe(response => {
             if (response.success) {
                 this.authService.setToken(response.token);
