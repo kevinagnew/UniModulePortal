@@ -13,6 +13,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { AppRoutingModule } from './app-routing.module'; // Import the routing module
+import { RouterModule } from '@angular/router';
 // Components
 import { NavigationBarComponent } from './shared-components/navigation-bar/navigation-bar.component';
 
@@ -35,6 +39,10 @@ import { NavigationBarComponent } from './shared-components/navigation-bar/navig
     MatSidenavModule,
     MatSelectModule,
     MatCardModule,
+    MatDividerModule,
+    MatListModule,
+    AppRoutingModule,
+    RouterModule
 ],
   exports: [
     CommonModule,
@@ -50,6 +58,10 @@ import { NavigationBarComponent } from './shared-components/navigation-bar/navig
     MatSidenavModule,
     MatSelectModule,
     MatCardModule,
+    MatDividerModule,
+    MatListModule,
+    AppRoutingModule,
+    RouterModule,
     // Components
     NavigationBarComponent
   ],

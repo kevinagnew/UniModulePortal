@@ -11,6 +11,8 @@ export class AdminPortalDashboardComponent {
 
 	constructor() {}
 
-	ngOnInit() {}
+	ngOnInit() {
+    console.log('AdminPortalDashboardComponent initialized');
+  }
 
 }

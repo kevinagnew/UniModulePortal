@@ -35,7 +35,11 @@ export class AdminPortalLoginComponent implements OnInit {
         this.authService.adminLogin(adminUser.email, adminUser.password).subscribe(response => {
             if (response.success) {
                 this.authService.setAdminToken(response.token);
-                this.router.navigate(['/admin-portal/dashboard']);
+                try {
+                    this.router.navigate(['admin-portal','dashboard']);
+                } catch (err) {
+                    console.warn({error: err});
+                }
             } else {
                 alert(response.message);
             }
