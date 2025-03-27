@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-admin-portal',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AdminPortalComponent {
 
+  @ViewChild('adminSideNav') adminSideNav: MatSidenav;
+
+  adminNavToggle() {
+    this.adminSideNav.toggle();
+  }
 }

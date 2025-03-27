@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-portal-dashboard',
@@ -7,5 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AdminPortalDashboardComponent {
 
+	constructor() {}
+
 	ngOnInit() {}
+
 }

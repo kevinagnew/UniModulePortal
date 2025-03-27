@@ -1,0 +1,7 @@
+<app-navigation-bar (toggleAdminNav)="adminNavToggle()"></app-navigation-bar>
+<mat-drawer-container hasBackdrop="false">
+    <mat-drawer #adminSideNav mode="over">I'm a drawer test 12345</mat-drawer>
+    <mat-drawer-content class="sidebar">
+        <app-admin-portal-dashboard></app-admin-portal-dashboard>
+    </mat-drawer-content>
+</mat-drawer-container>
