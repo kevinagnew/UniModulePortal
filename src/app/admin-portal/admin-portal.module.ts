@@ -5,6 +5,8 @@ import { AdminPortalLoginComponent } from './admin-portal-login/admin-portal-log
 import { SharedModule } from '../shared.module';
 import { AdminPortalRegisterComponent } from './admin-portal-register/admin-portal-register.component';
 import { AdminPortalDashboardComponent } from './admin-portal-dashboard/admin-portal-dashboard.component';
+import { AdminPortalModulesComponent } from './admin-portal-modules/admin-portal-modules.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -12,17 +14,20 @@ import { AdminPortalDashboardComponent } from './admin-portal-dashboard/admin-po
     AdminPortalComponent, 
     AdminPortalLoginComponent,
     AdminPortalRegisterComponent,
-    AdminPortalDashboardComponent
+    AdminPortalDashboardComponent,
+    AdminPortalModulesComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     AdminPortalComponent,
     AdminPortalLoginComponent,
     AdminPortalRegisterComponent,
-    AdminPortalDashboardComponent
+    AdminPortalDashboardComponent,
+    AdminPortalModulesComponent
   ]
 })
 export class AdminPortalModule { }

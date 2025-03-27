@@ -8,9 +8,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { AppRoutingModule } from './app-routing.module'; // Import the routing module
+import { RouterModule } from '@angular/router';
+// Components
+import { NavigationBarComponent } from './shared-components/navigation-bar/navigation-bar.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    // Components
+    NavigationBarComponent
+  ],
   imports: [
     CommonModule,
     MatInputModule,
@@ -19,7 +33,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatSelectModule,
+    MatCardModule,
+    MatDividerModule,
+    MatListModule,
+    AppRoutingModule,
+    RouterModule
 ],
   exports: [
     CommonModule,
@@ -29,7 +52,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatSelectModule,
+    MatCardModule,
+    MatDividerModule,
+    MatListModule,
+    AppRoutingModule,
+    RouterModule,
+    // Components
+    NavigationBarComponent
   ],
   providers: [provideHttpClient()],
 })

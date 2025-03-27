@@ -10,23 +10,23 @@ export class AuthService {
 
     constructor(private http: HttpClient) { }
 
-    login(email: string, password: string): Observable<any> {
+    adminLogin(email: string, password: string): Observable<any> {
         return this.http.post<any>(this.apiUrl, { email, password });
     }
 
-    setToken(token: string): void {
-        localStorage.setItem('token', token);
+    setAdminToken(token: string): void {
+        localStorage.setItem('adminToken', token);
     }
 
-    getToken(): string | null {
-        return localStorage.getItem('token');
+    getAdminToken(): string | null {
+        return localStorage.getItem('adminToken');
     }
 
     logout(): void {
-        localStorage.removeItem('token');
+        localStorage.removeItem('adminToken');
     }
 
     isLoggedIn(): boolean {
-        return !!this.getToken();
+        return !!this.getAdminToken();
     }
 }
