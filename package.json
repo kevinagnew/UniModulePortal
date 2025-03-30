@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@auth0/angular-jwt": "^5.2.0",
+    "@canvasjs/angular-charts": "^1.2.0",
     "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",

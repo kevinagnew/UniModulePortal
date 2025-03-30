@@ -15,10 +15,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import { AppRoutingModule } from './app-routing.module'; // Import the routing module
+import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { MatExpansionModule } from '@angular/material/expansion';
 // Components
 import { NavigationBarComponent } from './shared-components/navigation-bar/navigation-bar.component';
+// Libs
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { NavigationBarComponent } from './shared-components/navigation-bar/navig
     MatDividerModule,
     MatListModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    CanvasJSAngularChartsModule,
+    MatExpansionModule
 ],
   exports: [
     CommonModule,
@@ -62,6 +67,8 @@ import { NavigationBarComponent } from './shared-components/navigation-bar/navig
     MatListModule,
     AppRoutingModule,
     RouterModule,
+    CanvasJSAngularChartsModule,
+    MatExpansionModule,
     // Components
     NavigationBarComponent
   ],

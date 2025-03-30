@@ -12,8 +12,11 @@ export class AdminPortalComponent implements OnInit {
 
 	@ViewChild('adminSideNav') adminSideNav: MatSidenav;
 
+	studentManagementOptions = ['register', 'view'];
+
 	constructor(
-		private router: Router
+		private router: Router,
+		private authService: AuthService
 	) {
 	}
 
@@ -24,11 +27,18 @@ export class AdminPortalComponent implements OnInit {
 			case 'dashboard':
 				this.router.navigate(['admin-portal', 'dashboard']);
 				break;
+			case 'student-management-register':
+				this.router.navigate(['admin-portal', 'student-management-register']);
+				break;
+			case 'student-management-view':
+				this.router.navigate(['admin-portal', 'student-management-view']);
+				break;
 			case 'modules':
 				this.router.navigate(['admin-portal', 'modules']);
 				break;
-			case 'settings':
-				this.router.navigate(['admin-portal', 'settings']);
+			case 'logout':
+				this.authService.logout();
+				this.router.navigate(['/admin-portal/login']);
 				break;
 			default:
 				console.log('Page not found');

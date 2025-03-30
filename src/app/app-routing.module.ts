@@ -6,6 +6,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { AdminPortalDashboardComponent } from './admin-portal/admin-portal-dashboard/admin-portal-dashboard.component';
 import { AdminPortalModulesComponent } from './admin-portal/admin-portal-modules/admin-portal-modules.component';
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
+import { AdminPortalStudentManagementRegisterComponent } from './admin-portal/admin-portal-student-management-register/admin-portal-student-management-register.component';
+import { AdminPortalStudentManagementViewComponent } from './admin-portal/admin-portal-student-management-view/admin-portal-student-management-view.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'admin-portal', pathMatch: 'full' },
@@ -14,11 +16,13 @@ const routes: Routes = [
 
   {
     path: 'admin-portal',
-    component: AdminPortalComponent, // ✅ Load AdminPortalComponent first
-    canActivate: [AuthGuard], // ✅ Apply AuthGuard at parent level
+    component: AdminPortalComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // ✅ Default redirect inside admin portal
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: AdminPortalDashboardComponent },
+      { path: 'student-management-register', component: AdminPortalStudentManagementRegisterComponent },
+      { path: 'student-management-view', component: AdminPortalStudentManagementViewComponent },
       { path: 'modules', component: AdminPortalModulesComponent }
     ]
   }

@@ -8,16 +8,34 @@
         </div>
         <div>
             <mat-list>
-                <mat-list-item>
-                    <button mat-flat-button (click)="adminLoadContent('dashboard')">Dashboard</button>
+                <mat-list-item (click)="adminLoadContent('dashboard')">
+                    <mat-icon matListItemIcon>home</mat-icon>
+                    <div matListItemTitle>Dashboard</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
-                <mat-list-item>
-                    <button mat-flat-button (click)="adminLoadContent('modules')">Modules</button>
+                <div mat-subheader>Student Management</div>
+                <mat-list-item (click)="adminLoadContent('student-management-register')">
+                    <mat-icon matListItemIcon>how_to_reg</mat-icon>
+                    <div matListItemTitle>Register</div>
+                </mat-list-item>
+                <mat-list-item (click)="adminLoadContent('student-management-view')">
+                    <mat-icon matListItemIcon>group</mat-icon>
+                    <div matListItemTitle>View</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
-                <mat-list-item>
-                    <button mat-flat-button (click)="adminLoadContent('settings')">Settings</button>
+                <mat-list-item (click)="adminLoadContent('modules')">
+                    <mat-icon matListItemIcon>library_books</mat-icon>
+                    <div matListItemTitle>Modules</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item (click)="adminLoadContent('modules')">
+                    <mat-icon matListItemIcon>library_books</mat-icon>
+                    <div matListItemTitle>Test</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item (click)="adminLoadContent('logout')">
+                    <mat-icon matListItemIcon>logout</mat-icon>
+                    <div matListItemTitle>Logout</div>
                 </mat-list-item>
             </mat-list>
         </div>

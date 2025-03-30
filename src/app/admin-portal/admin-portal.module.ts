@@ -7,27 +7,32 @@ import { AdminPortalRegisterComponent } from './admin-portal-register/admin-port
 import { AdminPortalDashboardComponent } from './admin-portal-dashboard/admin-portal-dashboard.component';
 import { AdminPortalModulesComponent } from './admin-portal-modules/admin-portal-modules.component';
 import { RouterModule } from '@angular/router';
-
+import { AdminPortalStudentManagementRegisterComponent } from './admin-portal-student-management-register/admin-portal-student-management-register.component';
+import { AdminPortalStudentManagementViewComponent } from './admin-portal-student-management-view/admin-portal-student-management-view.component';
 
 @NgModule({
-  declarations: [
-    AdminPortalComponent, 
-    AdminPortalLoginComponent,
-    AdminPortalRegisterComponent,
-    AdminPortalDashboardComponent,
-    AdminPortalModulesComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule
-  ],
-  exports: [
-    AdminPortalComponent,
-    AdminPortalLoginComponent,
-    AdminPortalRegisterComponent,
-    AdminPortalDashboardComponent,
-    AdminPortalModulesComponent
-  ]
+    declarations: [
+        AdminPortalComponent,
+        AdminPortalLoginComponent,
+        AdminPortalRegisterComponent,
+        AdminPortalDashboardComponent,
+        AdminPortalModulesComponent,
+        AdminPortalStudentManagementRegisterComponent,
+        AdminPortalStudentManagementViewComponent
+    ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        RouterModule
+    ],
+    exports: [
+        AdminPortalComponent,
+        AdminPortalLoginComponent,
+        AdminPortalRegisterComponent,
+        AdminPortalDashboardComponent,
+        AdminPortalModulesComponent,
+        AdminPortalStudentManagementRegisterComponent,
+        AdminPortalStudentManagementViewComponent
+    ]
 })
 export class AdminPortalModule { }
