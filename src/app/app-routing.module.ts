@@ -5,22 +5,27 @@ import { AdminPortalLoginComponent } from './admin-portal/admin-portal-login/adm
 import { AuthGuard } from './guards/auth.guard';
 import { AdminPortalDashboardComponent } from './admin-portal/admin-portal-dashboard/admin-portal-dashboard.component';
 import { AdminPortalModulesComponent } from './admin-portal/admin-portal-modules/admin-portal-modules.component';
+import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 
 const routes: Routes = [
-  { path: '', component: AdminPortalLoginComponent },
+  { path: '', redirectTo: 'admin-portal', pathMatch: 'full' },
   { path: 'admin-portal/login', component: AdminPortalLoginComponent },
   { path: 'admin-portal/register', component: AdminPortalRegisterComponent },
+
   {
-    path: 'admin-portal', 
+    path: 'admin-portal',
+    component: AdminPortalComponent, // ✅ Load AdminPortalComponent first
+    canActivate: [AuthGuard], // ✅ Apply AuthGuard at parent level
     children: [
-      { path: 'dashboard', component: AdminPortalDashboardComponent, canActivate: [AuthGuard] },
-      { path: 'modules', component: AdminPortalModulesComponent, canActivate: [AuthGuard] }
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // ✅ Default redirect inside admin portal
+      { path: 'dashboard', component: AdminPortalDashboardComponent },
+      { path: 'modules', component: AdminPortalModulesComponent }
     ]
-  },
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], // Use forRoot() in the main module
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
