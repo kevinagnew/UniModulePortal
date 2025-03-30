@@ -27,6 +27,9 @@ export class AdminPortalComponent implements OnInit {
 			case 'modules':
 				this.router.navigate(['admin-portal', 'modules']);
 				break;
+			case 'settings':
+				this.router.navigate(['admin-portal', 'settings']);
+				break;
 			default:
 				console.log('Page not found');
 				break;

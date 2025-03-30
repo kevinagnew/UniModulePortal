@@ -1,9 +1,9 @@
 <mat-drawer-container hasBackdrop="false">
     <mat-drawer #adminSideNav mode="over">
         <div class="side-bar-title" fxLayout="row" fxLayoutAlign="space-between center">
-            <div>Admin Portal</div>
+            <div class="side-bar-title-label title">Admin Portal</div>
             <button mat-icon-button (click)="adminNavToggle()">
-                <mat-icon aria-label="Example home icon" fontIcon="close"></mat-icon>
+                <mat-icon>close</mat-icon>
             </button>
         </div>
         <div>
@@ -25,6 +25,8 @@
 
     <mat-drawer-content class="sidebar">
         <app-navigation-bar (toggleAdminNav)="adminNavToggle()"></app-navigation-bar>
-        <router-outlet></router-outlet>
+        <div class="admin-portal-display">
+            <router-outlet></router-outlet>
+        </div>
     </mat-drawer-content>
 </mat-drawer-container>
