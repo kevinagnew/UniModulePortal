@@ -18,8 +18,9 @@ const pool = new Pool({
 	connectionString: process.env.DATABASE_URL,
 });
 
+// Example: Protecting a route
 app.get('/protected', verifyToken, (req, res) => {
-    res.json({ message: 'Protected data accessed', user: req.user });
+    res.json({ message: 'You have access to this protected route', user: req.user });
 });
 
 function verifyToken(req, res, next) {

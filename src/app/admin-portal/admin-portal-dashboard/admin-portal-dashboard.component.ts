@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-portal-dashboard',
@@ -7,5 +9,48 @@ import { Component } from '@angular/core';
 })
 export class AdminPortalDashboardComponent {
 
-	ngOnInit() {}
+  studentResultOptions = {
+	  animationEnabled: true,
+	  title: {
+		text: "Student Results"
+	  },
+	  data: [{
+		type: "pie",
+		startAngle: -90,
+		indexLabel: "{name}: {y}",
+		yValueFormatString: "#,###.##'%'",
+		dataPoints: [
+		  { y: 14.1, name: "Toys" },
+		  { y: 28.2, name: "Electronics" },
+		  { y: 14.4, name: "Groceries" },
+		  { y: 43.3, name: "Furniture" }
+		]
+	  }]
+	};
+
+  resultsByCourseOptions = {
+	  animationEnabled: true,
+	  title: {
+		text: "Results By Course"
+	  },
+	  data: [{
+		type: "pie",
+		startAngle: -90,
+		indexLabel: "{name}: {y}",
+		yValueFormatString: "#,###.##'%'",
+		dataPoints: [
+		  { y: 14.1, name: "Toys" },
+		  { y: 28.2, name: "Electronics" },
+		  { y: 14.4, name: "Groceries" },
+		  { y: 43.3, name: "Furniture" }
+		]
+	  }]
+	};
+
+	constructor() {}
+
+	ngOnInit() {
+    console.log('AdminPortalDashboardComponent initialized');
+  }
+
 }

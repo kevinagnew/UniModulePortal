@@ -1,2 +1,19 @@
-<div>nav bar for admin portal</div>
-<div>frame component with quick actions</div>
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <h2>Dashboard</h2>
+        <div>
+            <div fxLayout="column">
+                <div fxFlex>First item in column</div>
+                <div fxFlex>Second item in column</div>
+            </div>
+            <div fxLayout="row">
+                <div fxFlex>
+                    <canvasjs-chart [options]="studentResultOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart> 
+                </div>
+                <div fxFlex>
+                    <canvasjs-chart [options]="resultsByCourseOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart> 
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
