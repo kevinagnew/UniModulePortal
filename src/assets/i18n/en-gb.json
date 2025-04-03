@@ -12,8 +12,10 @@
     "REGISTER": "Register",
     "REGISTERANEWSTUDENT": "Register A New Student",
     "SPANISH": "Spanish",
+    "STUDENTIDENTIFICATION": "Student Identification",
     "STUDENTMANAGEMENT": "Student Management",
     "TEST": "Test",
     "UNIADMINISTRATORPORTAL": "Uni Administrator Portal",
-    "VIEW": "View"
+    "VIEW": "View",
+    "VIEWSTUDENT": "View Student"
 }

@@ -32,7 +32,13 @@ export class AdminPortalStudentManagementRegisterComponent {
         // Generate random password
         student.password = '1234';
         this.registerService.registerForStudent(student).subscribe(response => {
-			console.log("KA - registerStudent: ", response);
+            let student_id =  response?.student?.student_id;
+            if (student_id) {
+                let student_identification = 'B000000' + student_id;
+                this.registerService.updateStudentIdentification(student_id, student_identification).subscribe(res => {
+                    console.log(res);
+                });
+            }
 		});
     }
 

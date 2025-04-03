@@ -50,5 +50,22 @@ export class RegisterService {
         const apiUrl = 'http://localhost:3000/student-register';
         return this.http.post<any>(apiUrl, params);
     }
+
+    updateStudentIdentification(student_id: number, student_identification: string): Observable<any> {
+        const params = {
+            student_id: student_id,
+            student_identifier: student_identification
+
+        };
+        // If all checks out successfully register for student
+        const apiUrl = 'http://localhost:3000/update-student-identification';
+        return this.http.post<any>(apiUrl, params);
+    }
+
+    viewStudent(student_identification: any): Observable<any> {
+        // If all checks out successfully register for student
+        const apiUrl = 'http://localhost:3000/view-student/' + student_identification;
+        return this.http.get<any>(apiUrl);
+    }
 }
 
