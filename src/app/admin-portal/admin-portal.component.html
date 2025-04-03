@@ -1,7 +1,7 @@
 <mat-drawer-container hasBackdrop="false">
     <mat-drawer #adminSideNav mode="over">
         <div class="side-bar-title" fxLayout="row" fxLayoutAlign="space-between center">
-            <div class="side-bar-title-label title">Admin Portal</div>
+            <div class="side-bar-title-label title">{{ 'ADMINPORTAL' | translate }}</div>
             <button mat-icon-button (click)="adminNavToggle()">
                 <mat-icon>close</mat-icon>
             </button>
@@ -10,33 +10,36 @@
             <mat-list>
                 <mat-list-item (click)="adminLoadContent('dashboard')">
                     <mat-icon matListItemIcon>home</mat-icon>
-                    <div matListItemTitle>Dashboard</div>
+                    <div matListItemTitle>{{ 'DASHBOARD' | translate }}</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
-                <div mat-subheader>Student Management</div>
+                <div mat-subheader>{{ 'STUDENTMANAGEMENT' | translate }}</div>
                 <mat-list-item (click)="adminLoadContent('student-management-register')">
                     <mat-icon matListItemIcon>how_to_reg</mat-icon>
-                    <div matListItemTitle>Register</div>
+                    <div matListItemTitle>{{ 'REGISTER' | translate }}</div>
                 </mat-list-item>
                 <mat-list-item (click)="adminLoadContent('student-management-view')">
                     <mat-icon matListItemIcon>group</mat-icon>
-                    <div matListItemTitle>View</div>
+                    <div matListItemTitle>{{ 'VIEW' | translate }}</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
                 <mat-list-item (click)="adminLoadContent('modules')">
                     <mat-icon matListItemIcon>library_books</mat-icon>
-                    <div matListItemTitle>Modules</div>
+                    <div matListItemTitle>{{ 'MODULES' | translate }}</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
                 <mat-list-item (click)="adminLoadContent('modules')">
                     <mat-icon matListItemIcon>library_books</mat-icon>
-                    <div matListItemTitle>Test</div>
+                    <div matListItemTitle>{{ 'TEST' | translate }}</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
                 <mat-list-item (click)="adminLoadContent('logout')">
                     <mat-icon matListItemIcon>logout</mat-icon>
-                    <div matListItemTitle>Logout</div>
+                    <div matListItemTitle>{{ 'LOGOUT' | translate }}</div>
                 </mat-list-item>
+                <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+                    <mat-icon>language</mat-icon>
+                </button>
             </mat-list>
         </div>
     </mat-drawer>
@@ -48,3 +51,11 @@
         </div>
     </mat-drawer-content>
 </mat-drawer-container>
+
+<mat-menu #languageMenu="matMenu">
+    <mat-radio-group (change)="languageChange($event)" class="languageMenuComponent" fxLayout="column" aria-labelledby="example-radio-group-label" class="example-radio-group">
+        <mat-radio-button class="example-radio-button" value="en-gb">{{ 'ENGLISH_UK' | translate }}</mat-radio-button>
+        <mat-radio-button class="example-radio-button" value="es">{{ 'SPANISH' | translate }}</mat-radio-button>
+        <mat-radio-button class="example-radio-button" value="fr">{{ 'FRENCH' | translate }}</mat-radio-button>
+    </mat-radio-group>
+</mat-menu>

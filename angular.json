@@ -12,6 +12,10 @@
       },
       "root": "",
       "sourceRoot": "src",
+      "assets": [
+        "assets",
+        "favicon.png"
+      ],
       "prefix": "app",
       "architect": {
         "build": {
@@ -29,7 +33,9 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -41,8 +47,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2.5mb"
                 },
                 {
                   "type": "anyComponentStyle",

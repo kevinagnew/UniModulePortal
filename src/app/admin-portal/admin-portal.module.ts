@@ -9,6 +9,7 @@ import { AdminPortalModulesComponent } from './admin-portal-modules/admin-portal
 import { RouterModule } from '@angular/router';
 import { AdminPortalStudentManagementRegisterComponent } from './admin-portal-student-management-register/admin-portal-student-management-register.component';
 import { AdminPortalStudentManagementViewComponent } from './admin-portal-student-management-view/admin-portal-student-management-view.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { AdminPortalStudentManagementViewComponent } from './admin-portal-studen
     imports: [
         CommonModule,
         SharedModule,
-        RouterModule
+        RouterModule,
+        TranslateModule
     ],
     exports: [
         AdminPortalComponent,

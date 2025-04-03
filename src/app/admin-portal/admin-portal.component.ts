@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-admin-portal',
@@ -13,11 +14,15 @@ export class AdminPortalComponent implements OnInit {
 	@ViewChild('adminSideNav') adminSideNav: MatSidenav;
 
 	studentManagementOptions = ['register', 'view'];
+	selectedLanguage: string;
 
 	constructor(
 		private router: Router,
-		private authService: AuthService
+		private authService: AuthService,
+		private translate: TranslateService
 	) {
+		this.translate.setDefaultLang('en-gb');  // Set default language
+    	this.translate.use('en-gb');  // Set initial language
 	}
 
 	ngOnInit(): void { }
@@ -48,5 +53,9 @@ export class AdminPortalComponent implements OnInit {
 
 	adminNavToggle() {
 		this.adminSideNav.toggle();
+	}
+
+	languageChange(language: any) {
+		this.translate.use(language.value);  // Switch language
 	}
 }

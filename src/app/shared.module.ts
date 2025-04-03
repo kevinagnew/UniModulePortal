@@ -5,8 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { provideHttpClient } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -18,10 +18,20 @@ import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 // Components
 import { NavigationBarComponent } from './shared-components/navigation-bar/navigation-bar.component';
 // Libs
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+
+// Factory function for TranslateHttpLoader
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -47,8 +57,17 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     AppRoutingModule,
     RouterModule,
     CanvasJSAngularChartsModule,
-    MatExpansionModule
-],
+    MatExpansionModule,
+    MatMenuModule,
+    MatRadioModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
+  ],
   exports: [
     CommonModule,
     MatInputModule,
@@ -69,6 +88,8 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     RouterModule,
     CanvasJSAngularChartsModule,
     MatExpansionModule,
+    MatMenuModule,
+    MatRadioModule,
     // Components
     NavigationBarComponent
   ],

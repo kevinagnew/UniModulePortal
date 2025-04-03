@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'admin-portal', pathMatch: 'full' },
   { path: 'admin-portal/login', component: AdminPortalLoginComponent },
   { path: 'admin-portal/register', component: AdminPortalRegisterComponent },
-
   {
     path: 'admin-portal',
     component: AdminPortalComponent,
