@@ -22,11 +22,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 // Components
 import { NavigationBarComponent } from './shared-components/navigation-bar/navigation-bar.component';
 // Libs
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { MatNativeDateModule } from '@angular/material/core';
 
 // Factory function for TranslateHttpLoader
 export function HttpLoaderFactory(http: HttpClient) {
@@ -66,7 +68,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     CommonModule,
@@ -90,9 +94,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatExpansionModule,
     MatMenuModule,
     MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     // Components
     NavigationBarComponent
   ],
-  providers: [provideHttpClient()],
+  providers: [
+    provideHttpClient(),
+    MatDatepickerModule
+  ],
 })
 export class SharedModule { }

@@ -89,6 +89,27 @@ app.post('/admin-login', async (req, res) => {
 	}
 });
 
+// Student Register Route
+app.post('/student-register', async (req, res) => {
+	try {
+		const { firstname, lastname, email, password, birthday, student_identifier } = req.body;
+		// TODO: validation/verification checks
+		const hashedPassword = await bcrypt.hash(password, 10);
+		const result = await pool.query(
+			"INSERT INTO students (firstname, lastname, email, birthday, password, student_identifier) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+			[firstname, lastname, email, birthday, hashedPassword, student_identifier]
+		);
+		res.status(201).json({
+			message: 'Student registered successfully',
+			admin: result.rows[0],
+		});
+	} catch (err) {
+		console.error(err);
+		res.status(500).send('Server Error');
+	}
+});
+
+
 // Start Server
 app.listen(port, () => {
 	console.log(`Server running at http://localhost:${port}`);

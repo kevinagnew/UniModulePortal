@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RegisterService, student } from '../../services/register.service';
 
 @Component({
   selector: 'app-admin-portal-student-management-register',
@@ -6,5 +8,32 @@ import { Component } from '@angular/core';
   styleUrl: './admin-portal-student-management-register.component.scss'
 })
 export class AdminPortalStudentManagementRegisterComponent {
+
+    registerStudentForm = new FormGroup({
+        firstname: new FormControl('', [Validators.required]),
+        lastname: new FormControl('', Validators.required),
+        email: new FormControl('', Validators.required),
+        birthday: new FormControl('', Validators.required)
+    });
+
+    constructor (
+        private registerService: RegisterService
+    ) {}
+
+    registerStudent(): void {
+        const student: student = {
+            firstname: this.registerStudentForm.value.firstname,
+            lastname: this.registerStudentForm.value.lastname,
+            email: this.registerStudentForm.value.email,
+            birthday: this.registerStudentForm.value.birthday,
+            password: '',
+            studentID: ''
+        };
+        // Generate random password
+        student.password = '1234';
+        this.registerService.registerForStudent(student).subscribe(response => {
+			console.log("KA - registerStudent: ", response);
+		});
+    }
 
 }
