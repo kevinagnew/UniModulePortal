@@ -1,0 +1,24 @@
+.side-bar-title {
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+}
+mat-drawer-container {
+    height: 100vh;
+}
+
+.side-bar-title-label {
+    margin: 20px;
+}
+
+.admin-portal-display {
+    margin: 20px;
+}
+
+mat-list-item:hover{
+    background-color: rgb(232, 232, 232);
+}
+
+.languageMenu{
+    padding: 10px;
+}

@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module'; // Import the routing m
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared.module'; // Ensure RouterModule is imported
 import { AdminPortalModule } from './admin-portal/admin-portal.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { AdminPortalModule } from './admin-portal/admin-portal.module';
     AppRoutingModule,
     AdminPortalModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
