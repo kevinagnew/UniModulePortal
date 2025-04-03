@@ -15,6 +15,12 @@ export class AdminPortalComponent implements OnInit {
 
 	studentManagementOptions = ['register', 'view'];
 	selectedLanguage: string;
+	chosenLang = 'en-gb';
+	languages = [
+		{ name: "English (UK)", value: "en-gb" },
+		{ name: "Español", value: "es" },
+		{ name: "Français", value: "fr" }
+	]
 
 	constructor(
 		private router: Router,

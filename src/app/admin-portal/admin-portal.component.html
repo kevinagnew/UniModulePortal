@@ -53,9 +53,10 @@
 </mat-drawer-container>
 
 <mat-menu #languageMenu="matMenu">
-    <mat-radio-group (change)="languageChange($event)" class="languageMenuComponent" fxLayout="column" aria-labelledby="example-radio-group-label" class="example-radio-group">
-        <mat-radio-button class="example-radio-button" value="en-gb">English (UK)</mat-radio-button>
-        <mat-radio-button class="example-radio-button" value="es">Español</mat-radio-button>
-        <mat-radio-button class="example-radio-button" value="fr">Français</mat-radio-button>
-    </mat-radio-group>
+    <div class="languageMenu">
+        <mat-radio-group (change)="languageChange($event)" class="languageMenuComponent" 
+            fxLayout="column" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="chosenLang">
+            <mat-radio-button class="example-radio-button" *ngFor="let language of languages" [value]="language.value">{{ language.name}}</mat-radio-button>
+        </mat-radio-group>
+    </div>
 </mat-menu>
