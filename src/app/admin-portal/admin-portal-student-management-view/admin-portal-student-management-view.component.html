@@ -1,1 +1,33 @@
-<p>admin-portal-student-management-view works!</p>
+<div class="page-content">
+    <mat-card appearance="outlined" class="card-content">
+        <mat-card-content>
+            <form fxLayout="column" [formGroup]="viewStudentForm" (ngSubmit)="viewStudent()">
+                <h1>{{ 'VIEWSTUDENT' | translate }}</h1>
+                <mat-form-field>
+                    <mat-label>{{ 'STUDENTIDENTIFICATION' | translate }}</mat-label>
+                      <input matInput type="text" id="student_identification" formControlName="student_identification">
+                </mat-form-field>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <button class="action-button" mat-flat-button color="accent" type="submit">{{ 'VIEW' | translate }}</button>
+                    <button class="action-button" mat-stroked-button color="accent" type="button" (click)="clearStudentData()">{{ 'CLEAR' | translate }}</button>
+                </div>
+            </form>
+            <div *ngIf="studentData" class="student-info" fxLayout="column" fxLayoutAlign="center center">
+                <table>
+                    <tr>
+                        <td>{{ 'FIRSTNAME' | translate }}</td>
+                        <td>{{ studentData.firstname }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ 'LASTNAME' | translate }}</td>
+                        <td>{{ studentData.lastname }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ 'IDENTIFICATION' | translate }}</td>
+                        <td>{{ studentData.student_identifier }}</td>
+                    </tr>
+                </table>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

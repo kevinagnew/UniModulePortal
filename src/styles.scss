@@ -10,3 +10,16 @@
    font-size: 22px;
    font-family: sans-serif;
  }
+
+.page-content {
+   display: flex;
+   justify-content: center;
+}
+
+.card-content {
+   width: 50%;
+}
+
+.action-button {
+   margin: 5px;
+}

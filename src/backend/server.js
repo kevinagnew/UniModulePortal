@@ -89,6 +89,60 @@ app.post('/admin-login', async (req, res) => {
 	}
 });
 
+// Student Register Route
+app.post('/student-register', async (req, res) => {
+	try {
+		const { firstname, lastname, email, password, birthday, student_identifier } = req.body;
+		// TODO: validation/verification checks
+		const hashedPassword = await bcrypt.hash(password, 10);
+		const result = await pool.query(
+			"INSERT INTO students (firstname, lastname, email, birthday, password, student_identifier) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+			[firstname, lastname, email, birthday, hashedPassword, student_identifier]
+		);
+		res.status(201).json({
+			message: 'Student registered successfully',
+			student: result.rows[0],
+		});
+	} catch (err) {
+		console.error(err);
+		res.status(500).send('Server Error for Student Register');
+	}
+});
+
+app.post('/update-student-identification', async (req, res) => {
+	try {
+		const { student_id, student_identifier } = req.body;
+		const result = await pool.query(
+			"UPDATE students SET student_identifier = $2 WHERE student_id = $1",
+			[student_id, student_identifier]
+		);
+		res.status(201).json({
+			message: 'Student successfully updated',
+			student: result
+		});
+	} catch (err) {
+		console.error(err);
+		res.status(500).send('Server Error for Update Student Identification');
+	}
+});
+
+app.get('/view-student/:student_identifier', async (req, res) => {
+	try {
+		const result = await pool.query(
+			"SELECT * FROM students WHERE student_identifier = $1",
+			[req.params.student_identifier]
+		);
+		res.status(201).json({
+			message: 'Student successfully returned',
+			student: result.rows[0]
+		});
+	} catch (err) {
+		console.error(err);
+		res.status(500).send('Server Error for Get Student');
+	}
+});
+
+
 // Start Server
 app.listen(port, () => {
 	console.log(`Server running at http://localhost:${port}`);

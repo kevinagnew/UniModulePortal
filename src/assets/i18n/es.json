@@ -1,14 +1,23 @@
 {
     "ADMINPORTAL": "Portal de Administración",
-    "DASHBOARD": "Panel de Control",
+    "BIRTHDAY": "Fecha de Nacimiento",
+    "DASHBOARD": "Tablero",
+    "EMAIL": "Correo Electrónico",
     "ENGLISH_UK": "Inglés (Reino Unido)",
+    "FIRSTNAME": "Nombre",
     "FRENCH": "Francés",
+    "IDENTIFICATION": "Identificación",
+    "LASTNAME": "Apellido",
     "LOGOUT": "Cerrar Sesión",
     "MODULES": "Módulos",
     "REGISTER": "Registrar",
+    "REGISTERANEWSTUDENT": "Registrar un Nuevo Estudiante",
     "SPANISH": "Español",
+    "STUDENTIDENTIFICATION": "Identificación del Estudiante",
     "STUDENTMANAGEMENT": "Gestión de Estudiantes",
     "TEST": "Prueba",
-    "UNIADMINISTRATORPORTAL": "Portal de Administrador Universitario",
-    "VIEW": "Ver"
-}
+    "UNIADMINISTRATORPORTAL": "Portal del Administrador Universitario",
+    "VIEW": "Ver",
+    "VIEWSTUDENT": "Ver Estudiante"
+  }
+  
