@@ -3,6 +3,7 @@
     "BIRTHDAY": "Birthday",
     "CLEAR": "Clear",
     "DASHBOARD": "Dashboard",
+    "DASHBOARDINFOTEXT": "Here's a breakdown of your scores",
     "EMAIL": "Email",
     "ENGLISH_UK": "English (UK)",
     "FIRSTNAME": "Firstname",
@@ -19,5 +20,6 @@
     "TEST": "Test",
     "UNIADMINISTRATORPORTAL": "Uni Administrator Portal",
     "VIEW": "View",
-    "VIEWSTUDENT": "View Student"
+    "VIEWSTUDENT": "View Student",
+    "WELCOME": "Welcome"
 }

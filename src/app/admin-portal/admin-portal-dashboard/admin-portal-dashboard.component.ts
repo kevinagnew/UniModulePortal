@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
 	selector: 'app-admin-portal-dashboard',
 	templateUrl: './admin-portal-dashboard.component.html',
 	styleUrl: './admin-portal-dashboard.component.scss'
 })
-export class AdminPortalDashboardComponent {
+export class AdminPortalDashboardComponent implements OnInit {
 
-	constructor() { }
+	user: any;
+
+	constructor(private userService: UserService) { }
 
 	studentResultOptions = {
 		animationEnabled: true,
@@ -48,7 +51,7 @@ export class AdminPortalDashboardComponent {
 	};
 
 	ngOnInit() {
-		console.log('AdminPortalDashboardComponent initialized');
+		this.user = this.userService.getUser();
 	}
 
 }

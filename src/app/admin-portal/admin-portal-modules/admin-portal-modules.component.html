@@ -1,10 +1,25 @@
 <mat-card appearance="outlined">
     <mat-card-content>
-        <h2>Modules</h2>
+        <h2>{{ 'MODULES' | translate }}</h2>
         <mat-tab-group>
-            <mat-tab label="First"> Content 1 </mat-tab>
-            <mat-tab label="Second"> Content 2 </mat-tab>
-            <mat-tab label="Third"> Content 3 </mat-tab>
+            <!-- Enter -->
+            <mat-tab label="Enter Module Marks">
+                <div class="tab-content">
+                    Enter new module marks
+                </div>
+            </mat-tab>
+            <!-- Edit -->
+            <mat-tab label="Edit Module Marks">
+                <div class="tab-content">
+                    Edit existing module marks
+                </div>
+            </mat-tab>
+            <!-- View -->
+            <mat-tab label="View Module Marks">
+                <div class="tab-content">
+                    View existing module marks
+                </div>
+            </mat-tab>
           </mat-tab-group>
     </mat-card-content>
 </mat-card>
