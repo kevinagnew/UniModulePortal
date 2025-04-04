@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminPortalComponent } from './admin-portal.component';
 import { AdminPortalLoginComponent } from './admin-portal-login/admin-portal-login.component';
-import { SharedModule } from '../shared.module';
+import { HttpLoaderFactory, SharedModule } from '../shared.module';
 import { AdminPortalRegisterComponent } from './admin-portal-register/admin-portal-register.component';
 import { AdminPortalDashboardComponent } from './admin-portal-dashboard/admin-portal-dashboard.component';
 import { AdminPortalModulesComponent } from './admin-portal-modules/admin-portal-modules.component';
 import { RouterModule } from '@angular/router';
 import { AdminPortalStudentManagementRegisterComponent } from './admin-portal-student-management-register/admin-portal-student-management-register.component';
 import { AdminPortalStudentManagementViewComponent } from './admin-portal-student-management-view/admin-portal-student-management-view.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,13 @@ import { TranslateModule } from '@ngx-translate/core';
         CommonModule,
         SharedModule,
         RouterModule,
-        TranslateModule
+        TranslateModule.forRoot({
+            loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+            }
+        }),
     ],
     exports: [
         AdminPortalComponent,

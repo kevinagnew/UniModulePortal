@@ -1,11 +1,13 @@
 {
     "ADMINPORTAL": "Admin Portal",
     "BIRTHDAY": "Birthday",
+    "CLEAR": "Clear",
     "DASHBOARD": "Dashboard",
     "EMAIL": "Email",
     "ENGLISH_UK": "English (UK)",
     "FIRSTNAME": "Firstname",
     "FRENCH": "French",
+    "IDENTIFICATION": "Identification",
     "LASTNAME": "Lastname",
     "LOGOUT": "Logout",
     "MODULES": "Modules",

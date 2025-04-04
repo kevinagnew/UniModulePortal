@@ -1,14 +1,23 @@
 {
-    "ADMINPORTAL": "Portail Administratif",
-    "DASHBOARD": "Tableau de Bord",
+    "ADMINPORTAL": "Portail d'administration",
+    "BIRTHDAY": "Date de naissance",
+    "DASHBOARD": "Tableau de bord",
+    "EMAIL": "Email",
     "ENGLISH_UK": "Anglais (Royaume-Uni)",
+    "FIRSTNAME": "Prénom",
     "FRENCH": "Français",
-    "LOGOUT": "Se Déconnecter",
+    "IDENTIFICATION": "Identification",
+    "LASTNAME": "Nom de famille",
+    "LOGOUT": "Déconnexion",
     "MODULES": "Modules",
-    "REGISTER": "S'inscrire",
+    "REGISTER": "Inscrire",
+    "REGISTERANEWSTUDENT": "Inscrire un nouvel étudiant",
     "SPANISH": "Espagnol",
-    "STUDENTMANAGEMENT": "Gestion des Étudiants",
+    "STUDENTIDENTIFICATION": "Identification de l'étudiant",
+    "STUDENTMANAGEMENT": "Gestion des étudiants",
     "TEST": "Test",
-    "UNIADMINISTRATORPORTAL": "Portail Administrateur Universitaire",
-    "VIEW": "Voir"
-}
+    "UNIADMINISTRATORPORTAL": "Portail de l'administrateur universitaire",
+    "VIEW": "Voir",
+    "VIEWSTUDENT": "Voir l'étudiant"
+  }
+  

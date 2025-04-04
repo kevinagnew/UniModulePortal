@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { adminUser, RegisterService } from '../../services/register.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
 	selector: 'app-admin-portal-register',
 	templateUrl: './admin-portal-register.component.html',
 	styleUrl: './admin-portal-register.component.scss'
 })
-export class AdminPortalRegisterComponent {
+export class AdminPortalRegisterComponent implements OnDestroy {
+
+	// Avoid memory leaks
+	private destroy$ = new Subject<void>();
 
 	adminRegisterForm = new FormGroup({
 		firstname: new FormControl('', Validators.required),
@@ -35,9 +39,15 @@ export class AdminPortalRegisterComponent {
 			email: this.adminRegisterForm.value.email,
 			password: this.adminRegisterForm.value.password
 		};
-		this.registerService.registerForAdmin(adminUser).subscribe(response => {
-			console.log("KA - registerAdmin: ", response);
+		this.registerService.registerForAdmin(adminUser)
+		.pipe(takeUntil(this.destroy$))
+		.subscribe(response => {
 			this.router.navigate(['/admin-portal/login']);
 		});
 	}
+
+	ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
+    }
 }
