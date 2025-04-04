@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { adminUser } from '../../services/register.service';
 import { AuthService } from '../../services/auth.service';
 import { Subject, takeUntil } from 'rxjs';
+import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'app-admin-portal-login',
@@ -22,7 +23,8 @@ export class AdminPortalLoginComponent implements OnInit, OnDestroy {
 
     constructor(
         private router: Router,
-        private authService: AuthService
+        private authService: AuthService,
+        private userService: UserService
     ) { }
 
     ngOnInit() { }
@@ -42,6 +44,8 @@ export class AdminPortalLoginComponent implements OnInit, OnDestroy {
                 if (response.success) {
                     this.authService.setAdminToken(response.token);
                     try {
+                        // set user
+                        this.userService.setUser(response.admin);
                         this.router.navigate(['admin-portal']);
                     } catch (err) {
                         console.warn({ error: err });

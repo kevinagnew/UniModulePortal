@@ -1,6 +1,8 @@
 <mat-card appearance="outlined" class="page-content">
     <mat-card-content>
-        <h2>Dashboard</h2>
+        <h1>{{ 'DASHBOARD' | translate }}</h1>
+        <h2>{{ 'WELCOME' | translate }} {{ user.firstname }},</h2>
+        <div>{{ 'DASHBOARDINFOTEXT' | translate }}</div>
         <div>
             <div fxLayout="row">
                 <div fxFlex>
