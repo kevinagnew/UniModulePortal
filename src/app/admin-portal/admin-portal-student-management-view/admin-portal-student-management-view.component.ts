@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
-import { Subject, takeUntil } from 'rxjs';
+import { first, firstValueFrom, Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'app-admin-portal-student-management-view',
@@ -23,14 +23,14 @@ export class AdminPortalStudentManagementViewComponent implements OnDestroy {
     viewStudent(): void {
         let student_identification = this.viewStudentForm.value.student_identification;
         this.registerService.viewStudent(student_identification)
-            .pipe(takeUntil(this.destroy$))
+            .pipe(first(), takeUntil(this.destroy$))
             .subscribe(response => {
                 this.studentData = response.student;
             });
     }
 
     clearStudentData(): void {
-        this.studentData = null;
+        this.studentData = undefined;
     }
 
     ngOnDestroy(): void {

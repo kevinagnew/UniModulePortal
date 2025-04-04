@@ -7,9 +7,9 @@
                     <mat-label>{{ 'STUDENTIDENTIFICATION' | translate }}</mat-label>
                       <input matInput type="text" id="student_identification" formControlName="student_identification">
                 </mat-form-field>
-                <div fxLayout="row" fxLayoutAlign="space-evenly center">
-                    <button mat-flat-button color="accent" type="submit">{{ 'VIEW' | translate }}</button>
-                    <button mat-stroked-button color="accent" (click)="clearStudentData()">{{ 'CLEAR' | translate }}</button>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <button class="action-button" mat-flat-button color="accent" type="submit">{{ 'VIEW' | translate }}</button>
+                    <button class="action-button" mat-stroked-button color="accent" type="button" (click)="clearStudentData()">{{ 'CLEAR' | translate }}</button>
                 </div>
             </form>
             <div *ngIf="studentData" class="student-info" fxLayout="column" fxLayoutAlign="center center">
