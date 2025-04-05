@@ -8,9 +8,13 @@ import { AdminPortalModulesComponent } from './admin-portal/admin-portal-modules
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { AdminPortalStudentManagementRegisterComponent } from './admin-portal/admin-portal-student-management-register/admin-portal-student-management-register.component';
 import { AdminPortalStudentManagementViewComponent } from './admin-portal/admin-portal-student-management-view/admin-portal-student-management-view.component';
+import { StudentPortalLoginComponent } from './student-portal/student-portal-login/student-portal-login.component';
+import { StudentPortalComponent } from './student-portal/student-portal.component';
+import { StudentPortalDashboardComponent } from './student-portal/student-portal-dashboard/student-portal-dashboard.component';
+import { StudentAuthGuard } from './guards/student-auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'admin-portal', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'admin-portal', pathMatch: 'full' },
   { path: 'admin-portal/login', component: AdminPortalLoginComponent },
   { path: 'admin-portal/register', component: AdminPortalRegisterComponent },
   {
@@ -23,6 +27,16 @@ const routes: Routes = [
       { path: 'student-management-register', component: AdminPortalStudentManagementRegisterComponent },
       { path: 'student-management-view', component: AdminPortalStudentManagementViewComponent },
       { path: 'modules', component: AdminPortalModulesComponent }
+    ]
+  },
+  { path: 'student-portal/login', component: StudentPortalLoginComponent },
+  { 
+    path: 'student-portal', 
+    component: StudentPortalComponent, 
+    canActivate: [StudentAuthGuard],
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: StudentPortalDashboardComponent }
     ]
   }
 ];

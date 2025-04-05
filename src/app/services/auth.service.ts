@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
     private apiUrl = 'http://localhost:3000/admin-login'; // Backend URL
+    private apiStudentUrl = 'http://localhost:3000/student-login'; // Backend URL
 
     constructor(private http: HttpClient) { }
 
@@ -29,5 +30,26 @@ export class AuthService {
 
     isLoggedIn(): boolean {
         return !!this.getAdminToken();
+    }
+
+    studentLogin(student_identifier: string, password: string): Observable<any> {
+        return this.http.post<any>(this.apiStudentUrl, { student_identifier, password });
+    }
+
+    setStudentToken(token: string): void {
+        localStorage.setItem('studentToken', token);
+    }
+
+    getStudentToken(): string | null {
+        return localStorage.getItem('studentToken');
+    }
+
+    logoutStudent(): void {
+        localStorage.removeItem('studentToken');
+        localStorage.removeItem('user');
+    }
+
+    isStudentLoggedIn(): boolean {
+        return !!this.getStudentToken();
     }
 }

@@ -142,6 +142,43 @@ app.get('/view-student/:student_identifier', async (req, res) => {
 	}
 });
 
+// Student Routes
+
+// Student Login Route
+app.post('/student-login', async (req, res) => {
+	try {
+		const { student_identifier, password } = req.body;
+		// check if a user with that email exists
+		const result = await pool.query(
+			"SELECT * FROM students WHERE student_identifier = $1",
+			[student_identifier]
+		);
+		switch (result.rowCount) {
+			case 1:
+				const isMatch = await bcrypt.compare(password, result.rows[0].password);
+				if (isMatch) {
+					const token = jwt.sign({ id: result.rows[0].student_id, email: result.rows[0].student_identifier }, SECRET_KEY, { expiresIn: '1h' });
+					res.status(201).json({
+						message: 'Student logged in successfully',
+						student: result.rows[0],
+						token: token,
+						success: true
+					});
+					break;
+				}
+			default:
+				res.status(201).json({
+					message: 'ID or password is incorrect',
+					success: false
+				});
+				break;
+		}
+	} catch (err) {
+		console.error(err);
+		res.status(500).send('Server Error');
+	}
+});
+
 
 // Start Server
 app.listen(port, () => {

@@ -1,0 +1,48 @@
+
+<mat-drawer-container hasBackdrop="false">
+    <mat-drawer #studentSideNav mode="over">
+        <div class="side-bar-title" fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="side-bar-title-label title">{{ 'STUDENTPORTAL' | translate }}</div>
+            <button mat-icon-button (click)="studentNavToggle()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+        <div>
+            <mat-list>
+                <mat-list-item (click)="studentLoadContent('dashboard')">
+                    <mat-icon matListItemIcon>home</mat-icon>
+                    <div matListItemTitle>{{ 'DASHBOARD' | translate }}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item (click)="studentLoadContent('modules')">
+                    <mat-icon matListItemIcon>library_books</mat-icon>
+                    <div matListItemTitle>{{ 'MODULES' | translate }}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item (click)="studentLoadContent('logout')">
+                    <mat-icon matListItemIcon>logout</mat-icon>
+                    <div matListItemTitle>{{ 'LOGOUT' | translate }}</div>
+                </mat-list-item>
+                <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+                    <mat-icon>language</mat-icon>
+                </button>
+            </mat-list>
+        </div>
+    </mat-drawer>
+
+    <mat-drawer-content class="sidebar">
+        <app-navigation-bar (toggleStudentNav)="studentNavToggle()"></app-navigation-bar>
+        <div class="admin-portal-display">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<mat-menu #languageMenu="matMenu">
+    <div class="languageMenu">
+        <mat-radio-group (change)="languageChange($event)" class="languageMenuComponent" 
+            fxLayout="column" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="chosenLang">
+            <mat-radio-button class="example-radio-button" *ngFor="let language of languages" [value]="language.value">{{ language.name}}</mat-radio-button>
+        </mat-radio-group>
+    </div>
+</mat-menu>
