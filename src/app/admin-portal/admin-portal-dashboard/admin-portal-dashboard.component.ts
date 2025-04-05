@@ -15,7 +15,7 @@ export class AdminPortalDashboardComponent implements OnInit {
 	studentResultOptions = {
 		animationEnabled: true,
 		title: {
-			text: "Student Results"
+			text: "Computer Science Results 2024"
 		},
 		data: [{
 			type: "pie",
@@ -23,10 +23,10 @@ export class AdminPortalDashboardComponent implements OnInit {
 			indexLabel: "{name}: {y}",
 			yValueFormatString: "#,###.##'%'",
 			dataPoints: [
-				{ y: 14.1, name: "Toys" },
-				{ y: 28.2, name: "Electronics" },
-				{ y: 14.4, name: "Groceries" },
-				{ y: 43.3, name: "Furniture" }
+				{ y: 14.1, name: "3rd" },
+				{ y: 28.2, name: "1st" },
+				{ y: 14.4, name: "2:2" },
+				{ y: 43.3, name: "2:1" }
 			]
 		}]
 	};
@@ -34,7 +34,7 @@ export class AdminPortalDashboardComponent implements OnInit {
 	resultsByCourseOptions = {
 		animationEnabled: true,
 		title: {
-			text: "Results By Course"
+			text: "Results By Year"
 		},
 		data: [{
 			type: "pie",
@@ -42,10 +42,10 @@ export class AdminPortalDashboardComponent implements OnInit {
 			indexLabel: "{name}: {y}",
 			yValueFormatString: "#,###.##'%'",
 			dataPoints: [
-				{ y: 14.1, name: "Toys" },
-				{ y: 28.2, name: "Electronics" },
-				{ y: 14.4, name: "Groceries" },
-				{ y: 43.3, name: "Furniture" }
+				{ y: 10, name: "Year 1" },
+				{ y: 28.2, name: "Year 3" },
+				{ y: 28.5, name: "Year 2" },
+				{ y: 33.3, name: "Year 4" }
 			]
 		}]
 	};
