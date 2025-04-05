@@ -7,6 +7,7 @@ import { SharedModule } from './shared.module'; // Ensure RouterModule is import
 import { AdminPortalModule } from './admin-portal/admin-portal.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { StudentPortalModule } from './student-portal/student-portal.module';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,15 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     RouterModule,
     AppRoutingModule, 
     SharedModule,
-    AdminPortalModule
+    AdminPortalModule,
+    StudentPortalModule
   ],
   exports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    AdminPortalModule
+    AdminPortalModule,
+    StudentPortalModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]

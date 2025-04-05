@@ -10,10 +10,10 @@ export type adminUser = {
 }
 
 export type student = {
-    firstname: any,
-    lastname: any,
-    email: any,
-    birthday: any,
+    firstname?: any,
+    lastname?: any,
+    email?: any,
+    birthday?: any,
     password: any,
     studentID: any
 }
