@@ -11,6 +11,9 @@ import { AdminPortalStudentManagementRegisterComponent } from './admin-portal-st
 import { AdminPortalStudentManagementViewComponent } from './admin-portal-student-management-view/admin-portal-student-management-view.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
+import { AdminPortalModulesEditComponent } from './admin-portal-modules/admin-portal-modules-edit/admin-portal-modules-edit.component';
+import { AdminPortalModulesEnterComponent } from './admin-portal-modules/admin-portal-modules-enter/admin-portal-modules-enter.component';
+import { AdminPortalModulesViewComponent } from './admin-portal-modules/admin-portal-modules-view/admin-portal-modules-view.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +23,10 @@ import { HttpClient } from '@angular/common/http';
         AdminPortalDashboardComponent,
         AdminPortalModulesComponent,
         AdminPortalStudentManagementRegisterComponent,
-        AdminPortalStudentManagementViewComponent
+        AdminPortalStudentManagementViewComponent,
+        AdminPortalModulesEditComponent,
+        AdminPortalModulesEnterComponent,
+        AdminPortalModulesViewComponent
     ],
     imports: [
         CommonModule,
@@ -41,7 +47,10 @@ import { HttpClient } from '@angular/common/http';
         AdminPortalDashboardComponent,
         AdminPortalModulesComponent,
         AdminPortalStudentManagementRegisterComponent,
-        AdminPortalStudentManagementViewComponent
+        AdminPortalStudentManagementViewComponent,
+        AdminPortalModulesEditComponent,
+        AdminPortalModulesEnterComponent,
+        AdminPortalModulesViewComponent
     ]
 })
 export class AdminPortalModule { }
